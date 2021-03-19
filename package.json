@@ -1,0 +1,26 @@
+{
+  "name": "monsterzoo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "builddev": "webpack --watch --devtool sourcemap",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mathijssky/Monsterzoo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mathijssky/Monsterzoo/issues"
+  },
+  "homepage": "https://github.com/Mathijssky/Monsterzoo#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
+  }
+}

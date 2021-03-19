@@ -1,0 +1,160 @@
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+#monsterconfig {
+    margin: 20px;
+    display: inline-block;
+    height: 100%;
+    border: 1px solid #ccc;
+    background: #efefef;
+}
+
+#monsterconfig h2 {
+    text-align: center;
+    margin: 10px;
+}
+
+#monsterconfig label {
+    text-align: center;
+    margin: 10px;
+}
+
+#monsterconfig form {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+#monsterconfig form img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#monsterTitle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#monsterconfig form input,
+select {
+    margin: 4px;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+th,
+td {
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
+    padding: 0px;
+    margin: 0px;
+}
+
+.spacing {
+    margin: 10px 10px 10px 10px;
+}
+
+h1 {
+    margin: 5px;
+    color: #116466;
+}
+
+h2 {
+    margin: 10px;
+    color: #116466;
+}
+
+.legenda h2 {
+    text-align: center;
+    margin: 25px 0px 0px 10px;
+}
+
+.legenda,
+.regions,
+.weather {
+    margin: 20px 10px 20px 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background: #efefef;
+    width: 320px;
+    align-content: center;
+}
+
+.regions {
+    width: fit-content;
+    height: 50px;
+}
+
+.button {
+    width: 100px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    color: #666;
+}
+
+.box {
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.jungle {
+    background: lightgreen;
+}
+
+.pole {
+    background: lightblue;
+}
+
+.sahara {
+    background: sandybrown;
+}
+
+.ocean{
+    background: #111E6C;
+}
+
+.maingrid {
+    margin: 20px;
+}
+
+#weatherimg {
+    position: relative;
+    left: 130px;
+}
+
+#monsterTitle {
+    background: #efefef;
+    border: none;
+    text-align: center;
+}
+
+.delete {
+    background: red;
+    margin: 10px;
+    border: 3px solid black;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+}
