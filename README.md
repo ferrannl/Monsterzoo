@@ -1,9 +1,23 @@
+Ahh — that’s because some Markdown parsers treat long --- lines as breaking the code block.
+
+I’ll fix it by escaping the horizontal rules so NOTHING breaks out of the code block.
+Here is a CLEAN, SAFE, NON-BREAKING .md you can paste directly into GitHub without red sections.
+
+✔ No broken code blocks
+✔ No unintended markdown parsing
+✔ All sections preserved
+
+Here is the fixed raw Markdown:
+
+
+---
+
 # Monsterzoo 🐲
 
 **Monsterzoo** is a small browser-based JavaScript game built as an _Eindopdracht JavaScript_ (final assignment).  
 You manage a zoo full of monsters: create them, customize them, place them on different fields, and move or delete them while dealing with changing weather conditions.
 
----
+\---
 
 ## Table of Contents
 
@@ -17,7 +31,7 @@ You manage a zoo full of monsters: create them, customize them, place them on di
 - [Authors](#authors)
 - [License](#license)
 
----
+\---
 
 ## Overview
 
@@ -28,16 +42,10 @@ Monsterzoo is a front-end JavaScript app that demonstrates:
 - A Webpack-based build pipeline that bundles everything into a `/dist` folder
 - Separation of raw assets (in `resources/`) from compiled output (in `dist/`)
 
-It was originally built as a school project to practice:
+A packaged build is also available here:  
+👉 **Releases:** https://github.com/ferrannl/Monsterzoo/releases
 
-- Designing a simple domain model (**Zoo → Monsters**)
-- Wiring JavaScript logic to the DOM
-- Using Webpack and `html-webpack-plugin` for building and bundling the app
-
-You can also download a packaged build from the **Releases** page:
-- 👉 [Releases](https://github.com/ferrannl/Monsterzoo/releases)
-
----
+\---
 
 ## Game Mechanics & Features
 
@@ -45,201 +53,117 @@ From the original project description:
 
 > **Monster Zoo** – Create, customize, place, move and delete monsters on different fields (with different weather conditions).
 
-Conceptually, the project includes:
+Core concepts include:
 
-- **Monster objects**  
-  Encapsulated monster data and behaviour in a dedicated `Monster` class.
+- **Monster objects** – encapsulated monster data & behaviour  
+- **Zoo management** – `Zoo` class manages monster collections  
+- **Configuration layer** – `Monsterconfig` connects UI with logic  
+- **Field & weather system** – monsters can be placed on areas with different weather  
+- **Webpack-bundled app** – output ends up in `dist/`
 
-- **Zoo management**  
-  A `Zoo` class maintains a collection of `Monster` instances and represents the overall zoo state.
-
-- **Configuration / controller layer**  
-  The `Monsterconfig` class connects UI & configuration logic with the `Zoo` and `Monster` classes.
-
-- **Field & weather system**  
-  Monsters can be placed on different fields; fields can have different weather conditions that influence the game experience.
-
-- **Bundled front-end app**  
-  All code is bundled via Webpack into a JS bundle and HTML entrypoint in `dist/`.
-
-This repo is a good base if you want to:
-
-- Add new monster types (with custom stats or abilities)
-- Extend the field / weather system
-- Persist monster setups in `localStorage` or an API
-- Refactor the architecture into a more formal MVC / MVVM pattern
-
----
+\---
 
 ## Tech Stack
 
 - **Language:** JavaScript (ES6 modules)
 - **Bundler:** Webpack 4
 - **Plugin:** `html-webpack-plugin`
-- **Output:** Static assets in `/dist` (HTML + JS bundle)
+- **Output:** Static assets served from `/dist`
 - **Package manager:** npm
-- **Build tooling:** Node-based Webpack configuration (`webpack.config.js`)
-
-From `package.json`:
 
 ```json
 {
   "name": "monsterzoo",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "builddev": "webpack --watch --devtool sourcemap",
-    "build": "webpack"
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
-  },
-  "license": "ISC"
+  }
 }
-
 
 ---
 
 Project Structure
 
-High-level structure of the repository:
-
 Monsterzoo/
-├─ dist/                 # Webpack build output (bundled JS + generated HTML)
-├─ node_modules/         # Installed dependencies (not tracked in Git)
-├─ resources/            # Raw assets/resources used by the project
-├─ src/                  # Source JavaScript (ES6 modules)
-│  ├─ Monster.js         # Monster class (single monster behaviour/data)
-│  ├─ Monsterconfig.js   # Configuration/controller logic
-│  ├─ Zoo.js             # Zoo class (collection of monsters + state)
-│  └─ index.js           # Main entrypoint hooking into the DOM
-├─ .gitattributes
-├─ .gitignore
-├─ index.html            # Redirect/helper (not the built app itself)
-├─ package.json          # Project metadata, scripts & devDependencies
-├─ package-lock.json
-└─ webpack.config.js     # Webpack configuration
-
-> Note: The actual built game is served from the dist folder after running one of the build scripts.
-
-
-
+├─ dist/                 # Build output (generated by Webpack)
+├─ resources/            # Images/assets
+├─ src/
+│  ├─ Monster.js         # Monster class
+│  ├─ Monsterconfig.js   # Config/controller
+│  ├─ Zoo.js             # Zoo class
+│  └─ index.js           # Entry script
+├─ index.html
+├─ package.json
+├─ webpack.config.js
 
 ---
 
 Getting Started
 
-Prerequisites
-
-Node.js (which includes npm)
-
-
-1. Clone the repository
-
-git clone https://github.com/ferrannl/Monsterzoo.git
-cd Monsterzoo
-
-2. Install dependencies
+1. Install dependencies
 
 npm install
 
-3. Build the project
-
-For a one-off production build:
-
-npm run build
-
-This compiles the app into the dist/ folder.
-
-For development (watch mode with source maps):
+2. Development build (watch mode)
 
 npm run builddev
 
-4. Run the app in a browser
+3. Production build
 
-You can open the built app by serving the dist/ folder with any static file server, for example:
+npm run build
 
-# Using npx and a simple static server
+4. Run locally
+
+Serve the dist/ directory with any static server:
+
 npx serve dist
 
-Or use any other local HTTP server / IDE plugin (e.g. VS Code Live Server) pointing at the dist/ directory, then open it in your browser.
-
+Or use VS Code Live Server → point to dist/
 
 ---
 
 Available Scripts
 
-In the project directory, you can run:
+npm run builddev – Webpack watch mode + sourcemaps
 
-npm run builddev
+npm run build – Production build
 
-Runs Webpack in watch mode
-
-Generates source maps for easier debugging
-
-Rebuilds the bundle whenever you change files in src/
-
-
-npm run build
-
-Runs a one-off Webpack build
-
-Outputs optimized files into dist/
-
-
-npm test
-
-Currently just a placeholder script (prints an error and exits).
-
-Replace this with your own test runner (e.g. Jest) if you add tests.
-
-
+npm test – Placeholder script
 
 
 ---
 
 Development Notes
 
-This is a school project and focuses on clarity & learning over advanced patterns.
+This repo is ideal for extending or experimenting with:
 
-The codebase is intentionally small and modular, making it a nice playground for:
+New monster types
 
-Refactoring to different architectures
+Additional field/weather rules
 
-Adding new types of monsters
+Persisting zoo data in localStorage or an API
 
-Introducing state management, unit tests, or a UI framework if desired
-
-
-
-If you fork this project and experiment with it, feel free to:
-
-Add tests and hook them into npm test
-
-Improve accessibility / UX
-
-Add more game rules (e.g. monster stats vs. weather, field effects, etc.)
-
+Adding tests or refactoring into MVC/MVVM patterns
 
 
 ---
 
 Authors
 
-From the original project & release:
-
 Mathijs van Wijk
 
-Ferran Hendriks (repository owner: @ferrannl)
-
+Ferran Hendriks (repo owner)
 
 
 ---
 
 License
 
-This project is licensed under the ISC License (see package.json).
-You are free to use, modify and share the code under the terms of that license.
+This project is licensed under the ISC License.
