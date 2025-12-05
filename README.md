@@ -1,17 +1,3 @@
-Ahh — that’s because some Markdown parsers treat long --- lines as breaking the code block.
-
-I’ll fix it by escaping the horizontal rules so NOTHING breaks out of the code block.
-Here is a CLEAN, SAFE, NON-BREAKING .md you can paste directly into GitHub without red sections.
-
-✔ No broken code blocks
-✔ No unintended markdown parsing
-✔ All sections preserved
-
-Here is the fixed raw Markdown:
-
-
----
-
 # Monsterzoo 🐲
 
 **Monsterzoo** is a small browser-based JavaScript game built as an _Eindopdracht JavaScript_ (final assignment).  
